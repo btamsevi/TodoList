@@ -4,7 +4,6 @@ import TodoItem from '../todoItem/TodoItem';
 class ItemList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.todos;
         this.toggle = this.toggle.bind(this);
     }
 
@@ -17,7 +16,7 @@ class ItemList extends React.Component {
 
         return(
             <div className='ItemList'>
-                <ul>{todos.map(todo => <TodoItem todo={todo} toggle={this.toggle}/>)}</ul>
+                <ul>{todos.map(todo => <TodoItem todo={todo} key={todo.text.toString()} toggle={this.toggle}/>)}</ul>
             </div>
         );
     }

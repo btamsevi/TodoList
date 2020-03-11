@@ -1,6 +1,5 @@
 import React from 'react';
 import AddItemBar from './addItemBar/AddItemBar';
-import TodoItem from './todoItem/TodoItem';
 import ItemList from './itemList/ItemList';
 import {default as DefaultTodos} from './DefaultTodos';
 
