@@ -1,0 +1,10 @@
+export default [{text : 'Wake up on time (8:00)', completed : false},
+{text : 'Breakfast', completed: false},
+{text : 'Read (30 minutes)', completed: false},
+{text : 'Shower (Minoxidil)', completed: false},
+{text : 'Duolingo (30 minutes)', completed: false},
+{text : 'Crash Course (1-2 videos)', completed: false},
+{text : 'Meditate', completed: false},
+{text : 'Clean', completed: false},
+{text : 'Programming (2 hours)', completed: false},
+{text : 'Go to Gym', completed: false},];
