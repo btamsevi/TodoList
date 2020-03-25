@@ -4,8 +4,8 @@ class TodoItem extends React.Component {
     constructor(props) {
         super(props);
         this.toggleFn = this.toggleFn.bind(this);
+        
     }
-
     
 
     toggleFn() {
@@ -13,8 +13,8 @@ class TodoItem extends React.Component {
     }
 
     render() {
-        const {text, completed} = this.props.todo;
-        return(<li className={completed ? 'completed' : 'incomplete'}  onClick={this.toggleFn}>{text}</li>);
+        const {description, isComplete} = this.props.todo;
+        return(<li className={isComplete ? 'completed' : 'incomplete'}  onClick={this.toggleFn}>{description}</li>);
     }
 }
 
