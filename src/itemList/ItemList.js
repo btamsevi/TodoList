@@ -16,7 +16,7 @@ class ItemList extends React.Component {
 
         return(
             <div className='ItemList'>
-                <ul>{todos.map(todo => <TodoItem todo={todo} key={todo.text.toString()} toggle={this.toggle}/>)}</ul>
+                <ul>{todos.map(todo => <TodoItem todo={todo} key={todo.id} toggle={this.toggle}/>)}</ul>
             </div>
         );
     }
