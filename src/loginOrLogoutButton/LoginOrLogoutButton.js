@@ -3,12 +3,20 @@ import { Auth0Context } from '../contexts/auth0-context';
 
 class LoginOrLogoutButton extends React.Component {
     render() {
-        const { user, loginWithRedirect, logout } = this.context;
+        const { user, logout } = this.context;
 
 
     return(
     <div>
-        {!user ? (<button onClick={loginWithRedirect}>Login</button>) : <button onClick={() => logout({ returnTo: window.location.origin })}>Logout</button>}
+        {!user 
+
+        ? (<button onClick={this.props.loginFn}>
+            Login
+            </button>) 
+
+        : <button onClick={() => logout({ returnTo: window.location.origin })}>
+            Logout
+            </button>}
     </div>
     );
     }
