@@ -23,7 +23,7 @@ class AddItemBar extends React.Component {
     }
 
     updateList(e) {
-        this.props.intermediateFunc(this.state.value);
+        this.props.addTodo(this.state.value);
         this.setState({ value: '' });
     }
 
@@ -36,13 +36,27 @@ class AddItemBar extends React.Component {
     }
 
     render() {
-        const buttonText = this.props.buttonText;
         return (
             <div className='AddItemBar'>
-                <input type='text' value={this.state.value} onChange={this.handleChange} onKeyDown={this.handleKeyDown} placeholder={this.props.placeholder} size='40' />
-                <button type='button' onClick={this.updateList}>{buttonText}</button>
-                <button onClick={this.resetTodos}>Reset</button>
-                <button onClick={this.deleteCompletedTodos}>Delete</button>
+                <input type='text' 
+                    value={this.state.value} 
+                    onChange={this.handleChange} 
+                    onKeyDown={this.handleKeyDown} 
+                    placeholder="Add Todo" size='40' 
+                />
+
+                <button id='addButton' onClick={this.updateList}>
+                    +
+                    </button>
+
+                <button id='resetButton' onClick={this.resetTodos}>
+                    Reset
+                    </button>
+
+                <button id='deleteButton' onClick={this.deleteCompletedTodos}>
+                    Delete
+                    </button>
+
             </div>
 
         );
