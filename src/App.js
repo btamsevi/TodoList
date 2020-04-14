@@ -17,7 +17,7 @@ class App extends React.Component {
     this.resetTodos = this.resetTodos.bind(this);
     this.deleteCompletedTodos = this.deleteCompletedTodos.bind(this);
     this.toggle = this.toggle.bind(this);
-    this.loginWithRedirectFn = this.loginWithRedirectFn.bind(this);
+    this.grabToken = this.grabToken.bind(this);
 
     this.state = { todos: [], accessToken: null };
   }
@@ -94,9 +94,7 @@ class App extends React.Component {
     this.setState({ todos: todosAfterToggle });
   }
 
-  async loginWithRedirectFn() {
-    await this.context.loginWithRedirect();
-
+  async grabToken() {
     const accessToken = await this.context.getTokenSilently();
 
     axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
@@ -113,12 +111,17 @@ render() {
   const todos = this.state.todos;
   const { isLoading } = this.context;
 
+  if (this.context.user && !this.state.accessToken)
+  {
+    this.grabToken();
+  };
+
   return (
     <div>
       {!isLoading
         ? (
           <>
-            <LoginOrLogoutButton loginFn={this.loginWithRedirectFn} />
+            <LoginOrLogoutButton />
             <h1>Todo List</h1>
 
             <AddItemBar addTodo={this.addTodo}
