@@ -3,14 +3,14 @@ import { Auth0Context } from '../contexts/auth0-context';
 
 class LoginOrLogoutButton extends React.Component {
     render() {
-        const { user, logout } = this.context;
+        const { user, logout, loginWithRedirect } = this.context;
 
 
     return(
     <div>
         {!user 
 
-        ? (<button onClick={this.props.loginFn}>
+        ? (<button onClick={loginWithRedirect}>
             Login
             </button>) 
 
